@@ -1,0 +1,571 @@
+html, body {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    font-family: "Lato";
+    color: #fff;
+    background-color: #201547;
+    letter-spacing: 1.5px;
+}
+
+/* .row-selected, .row-selected td{
+    background-color: rgb(100, 79, 184) !important;
+} */
+
+.wallpaper {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-image: url("pics/20220328_212931000_iOS.jpg");
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+}
+
+.wallpaper-inner {
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: #201547;
+    opacity: 0.8;
+}
+
+#login {
+    position: fixed;
+    display: table;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    z-index: 950;
+    background-color: #170f33;
+}
+
+#login-inner {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#login-title {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+#login-subtitle {
+    position: relative;
+    font-family: "Roboto";
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#todo-list {
+    position: absolute;
+    top: 250px;
+    left: 50px;
+    background-color: #0b061b;
+    border: 0.2em solid #090124;
+    border-style: dashed;
+    opacity: 0.5;
+}
+
+.cover {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contain {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.inline-middle {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.inline-top {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.middle {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#popups {
+    position: fixed;
+    top: 200px;
+    left: 125px;
+    z-index: 800;
+}
+
+.popup {
+    position: relative;
+    box-sizing: border-box;
+    height: fit-content;
+    width: fit-content;
+    max-width: 350px;
+    padding: 20px;
+    background-color: #14a101;
+    border: 0.2em solid #18c501;
+    border-style: dashed;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.popup-red {
+    background-color: #a10101;
+    border: 0.2em solid #c50101;
+    border-style: dashed;
+}
+
+#update, #delete { color: #838383; }
+
+.popup-icon {
+    position: relative;
+    height: 22.5px;
+    width: 22.5px;
+    background-image: url("pics/terminal.png");
+    margin-right: 8px;
+}
+
+.popup-time {
+    margin-bottom: 0px;
+}
+
+.popup-contents {
+    margin-top: 5px;
+    letter-spacing: 1px;
+    font-family: "Roboto";
+}
+
+.popup-title {
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+}
+
+#navbar {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    z-index: 800;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    padding: 45px;
+    padding-left: 55px;
+    padding-right: 55px;
+}
+
+#navbar-left, #navbar-right {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 48%;
+}
+
+#navbar-right { text-align: right; }
+
+#db-icon {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    margin-right: 15px;
+    background-image: url("pics/database.png");
+}
+
+#app-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#app-author {
+    font-size: 18px;
+}
+
+.action {
+    position: relative;
+    font-size: 20px;
+    margin-left: 12px;
+    letter-spacing: 8px;
+    cursor: pointer;
+    transition: 0.2s ease all;
+}
+
+.action:hover, #signout:hover {
+    font-weight: bold;
+}
+
+#signout-text {
+    transition: 0.2s ease all;
+    position: relative;
+    margin-right: 5px;
+    letter-spacing: 5px;
+    font-size: 18px;
+}
+
+#signout { 
+    margin-left: 35px;
+    cursor: pointer;
+}
+
+#signout-icon {
+    position: relative;
+    height: 12.5px;
+    width: 25px;
+    background-image: url("pics/arrow.png");
+}
+
+#row_selected {
+    position: relative;
+    font-size: 18px;
+    margin-right: 0px;
+    margin-top: 7px;
+    text-transform: uppercase;
+}
+
+#crud-container {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    padding-top: 250px;
+}
+
+#crud-title {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 40px;
+    letter-spacing: 12px;
+    text-align: center;
+}
+
+#no-records {
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 25px;
+}
+
+#welcome-tab {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.information { /* #datatable_filter */
+    position: relative;
+    box-sizing: border-box;
+    height: fit-content;
+    width: fit-content;
+    max-width: 425px;
+    padding: 20px;
+    background-color: #6636a0 !important;
+    border: 0.2em solid #4d287a !important;
+    border-style: dashed;
+    border-radius: 10px;
+    border: 0.2em solid rgb(62 46 122);
+    border-style: dashed !important;
+}
+
+.information-icon {
+    position: relative;
+    height: 30px;
+    width: 30px;
+    background-image: url("pics/info_icon.png");
+    margin-bottom: 8px;
+}
+
+.information-title {
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.information-txt {
+    position: relative;
+    font-family: "Roboto";
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+#table {
+    position: relative;
+    min-width: 100%;
+    margin-top: 35px;
+    border-collapse: collapse;
+}
+
+#table tr td, .action-fullscreen-table tr td {
+    background-color: rgb(29, 13, 87);
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: "Roboto";
+}
+
+#table tr th {
+    padding: 15px;
+    font-size: 14px;
+    text-transform: uppercase;
+    background-color: #170f33;
+    letter-spacing: 2px;
+}
+
+#table tr:hover td, .action-fullscreen-table tr:hover td {
+    background-color: #3d2591 !important;
+}
+
+.th-row {
+    position: sticky;
+    top: 147px;
+    z-index: 800;
+}
+
+.odd, .odd td { background-color: #331e7e !important; }
+
+.action-fullscreen {
+    position: fixed;
+    display: none;;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+
+.action-fullscreen-outer {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+.action-fullscreen-contents {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.action-fullscreen-title {
+    position: relative;
+    font-size: 40px;
+    letter-spacing: 10px;
+    font-weight: bold;
+    font-family: "Lato";
+    margin-bottom: 20px;
+}
+
+.action-fullscreen-description {
+    position: relative;
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-family: "Roboto";
+}
+
+.action-fullscreen-table {
+    position: relative;
+    height: fit-content;
+    width: 400px;
+    max-width: 420px;
+    border-collapse: collapse;
+    border-radius: 15px;
+    margin-bottom: 7.5px;
+}
+
+.action-fullscreen-table-container  {
+    position: relative;
+    max-height: 600px;
+    overflow-y: scroll;
+    width: fit-content;
+    border-radius: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.action-table-th {
+    position: relative;
+    font-size: 14px;
+    text-transform: uppercase;
+    /* background-color: #170f33; */
+    letter-spacing: 2px;
+}
+
+.action-fullscreen-table tr td {
+    position: relative;
+    font-family: "Roboto";
+    text-align: right;
+    font-size: 17px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.action-table-th th {
+    position: sticky;
+    padding: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    top: 0px;
+    z-index: 999;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);}
+
+.action-table-input, #datatable_filter input, #datatable input {
+    position: relative;
+    background-color: transparent;
+    outline: none;
+    height: fit-content;
+    border: 0px;
+    transition: 0.2s ease all;
+    border-bottom: 0.2em solid rgb(67, 50, 134);
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 17px;
+    padding: 7px;
+}
+
+.action-table-input:hover { border-bottom: 0.2em solid rgb(100, 79, 184); }
+.action-table-input:focus { border-bottom: 0.2em solid rgb(126, 103, 218); }
+
+.button {
+    position: relative;
+    padding: 14px;
+    padding-right: 25px;
+    padding-left: 15px;;
+    border-radius: 8px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.button-icon {
+    position: relative;
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+}
+
+.button-text {
+    position: relative;
+    font-family: "Roboto";
+    font-size: 18px;
+}
+
+.login-input {
+    background-color: rgb(55 39 115) !important;
+    display: block;
+    margin-bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px;
+    box-sizing: border-box;
+    font-family: "Lato";
+    letter-spacing: 2.5px;
+    width: 350px;
+}
+
+.login-input::placeholder {
+    color: #ccc;
+}
+
+#login-button {
+    position: relative;
+    width: 350px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-family: "Roboto";
+    letter-spacing: 5px;
+    background-color: rgb(96 57 245);
+}
+
+#confirm-password {
+    display: none;
+}
+
+#no-account {
+    position: relative;
+    margin-top: 25px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+#filters {
+    position: relative;
+    width: fit-content;
+    max-width: 280px;
+    left: 50%;
+    box-sizing: content-box;
+    background-color: #2e0788;
+    border: 0.2em solid #4108c4;
+    border-style: dashed;
+    margin-top: 25px;
+    padding-top: 25px;
+    transform: translateX(-50%);
+}
+
+#filters-txt {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    font-size: 25px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.filter, #filter-inputs-container {
+    position: relative;
+    width: fit-content;
+}
+
+.filter-txt, #datatable_filter label {
+    position: relative;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.filter select {
+    min-width: 250px;
+    max-width: 275px;
+    letter-spacing: 1.5px;
+    font-family: "Roboto";
+}
+
+#datatable_filter {
+    text-align: center;
+    float: none;
+}

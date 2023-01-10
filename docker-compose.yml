@@ -1,0 +1,58 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    volumes: 
+    - ./public:/var/www/html/
+    ports:
+    - 80:80
+    depends_on:
+      - mysql
+    networks:
+      - app
+
+  fpm:
+    build: ./volume_php
+    # image: php:fpm-alpine
+    volumes: 
+    - ./public:/var/www/html/
+    ports:
+    - 9000:9000
+    depends_on:
+      - mysql
+    networks:
+      - app
+    links:
+      - mysql
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    # hostname: localhost
+    environment:
+      MYSQL_ROOT_PASSWORD: 'mygene'
+      MYSQL_DATABASE: 'dnaiq_dallas'
+      MYSQL_TCP_PORT: 3306
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
+
+  # nodejs:
+  #   image: node:16.15.1
+  #   container_name: nodejs
+  #   build: ./volume_nodejs
+  #   volumes:
+  #     - ./volume_nodejs:/usr/src/app
+  #   ports:
+  #   - 27015:27015
+  #   depends_on:
+  #     - mysql
+  #   restart: always

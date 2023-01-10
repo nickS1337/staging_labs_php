@@ -1,0 +1,116 @@
+
+#datatable {
+    position: relative;
+    display: block;
+    border-collapse: collapse;
+    width: 100%;
+    height: fit-content;
+}
+
+#datatable tbody {
+    position: relative;
+    width: 100%;
+}
+
+#datatable tr td {
+    background-color: rgb(29, 13, 87);
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: "Roboto";
+}
+
+#datatable tr th {
+    padding: 15px;
+    font-size: 14px;
+    text-transform: uppercase;
+    background-color: #170f33;
+    letter-spacing: 2px;
+}
+
+#datatable tr:hover td {
+    background-color: #3d2591 !important;
+}
+
+.th-row {
+    position: sticky;
+    top: 147px;
+}
+
+#datatable input {
+    min-width: 120px;
+    width: fit-content;
+    background-color: rgb(55 39 115) !important;
+}
+
+.selected {
+    background-color: rgb(48, 8, 194) !important;
+}
+
+#datatable_filter {
+    position: relative;
+    left: 50%;
+    width: fit-content;
+    transform: translateX(-50%);
+    margin-bottom: 25px;
+}
+
+#datatable_filter input {
+    position: relative;
+    background-color: rgb(91 71 165) !important;
+    margin-bottom: 25px;
+    width: 300px;
+    box-sizing: border-box;
+    padding: 15px;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 0px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+#datatable_filter label {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 6px;
+}
+
+#loading-screen {
+    position: fixed;
+    display: table;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    background-color: #170f33;
+}
+
+#loading-screen-inner {
+    position: relative;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.lds-grid {
+    scale: calc(1.5);
+}
+
+#loading-title {
+    position: relative;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 30px;
+    letter-spacing: 12px;
+    text-align: center;
+    margin-top: 61px;
+    color: rgb(226, 226, 226);
+}
+
+#loading-subtitle {
+    margin-top: 15px;
+    font-size: 18px;
+    color: rgb(175, 174, 174);
+}
