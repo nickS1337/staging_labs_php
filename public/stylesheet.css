@@ -9,6 +9,10 @@ html, body {
     letter-spacing: 1.5px;
 }
 
+:root {
+    color-scheme: dark;
+}
+
 /* .row-selected, .row-selected td{
     background-color: rgb(100, 79, 184) !important;
 } */
@@ -270,15 +274,15 @@ html, body {
     margin-bottom: 10px;
 }
 
-.information { /* #datatable_filter */
+.information, #datatable_filter { /* #datatable_filter */
     position: relative;
     box-sizing: border-box;
     height: fit-content;
     width: fit-content;
     max-width: 425px;
-    padding: 20px;
-    background-color: #6636a0 !important;
-    border: 0.2em solid #4d287a !important;
+    padding: 30px;
+    background-color: #582d8d !important;
+    border: 0.2em solid #4b207f !important;
     border-style: dashed;
     border-radius: 10px;
     border: 0.2em solid rgb(62 46 122);
@@ -337,7 +341,7 @@ html, body {
 .th-row {
     position: sticky;
     top: 147px;
-    z-index: 800;
+    z-index: 750;
 }
 
 .odd, .odd td { background-color: #331e7e !important; }
@@ -549,7 +553,7 @@ html, body {
     width: fit-content;
 }
 
-.filter-txt, #datatable_filter label {
+.filter-txt, #datatable_filter label, #order, #toggle_table {
     position: relative;
     display: block;
     font-size: 16px;
@@ -566,6 +570,6 @@ html, body {
 }
 
 #datatable_filter {
-    text-align: center;
+    text-align: left;
     float: none;
 }

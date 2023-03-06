@@ -296,10 +296,6 @@ $(document).ready(() => {
 
     }
 
-    document.getElementById("signout").onclick = () => {
-        window.location.reload()
-    };
-
 });
 
 socket.on("removeLoading", ()=>{ $("#loading-screen").fadeOut(); });
@@ -661,6 +657,18 @@ function populateMainTable(data){
 
 }
 
+document.getElementById("signout").onclick = ()=>{
+    
+    $("#loading-screen").fadeIn();
+
+    removeAllCookies();
+
+    setTimeout(()=>{
+        window.location.reload();
+    }, 3000);
+
+}
+
 let removeAllCookies = ()=>{
     document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
 }
@@ -673,9 +681,4 @@ function setCookie(name,value,days) {
         expires = "; expires=" + date.toUTCString();
     }
     document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-}
-
-document.getElementById("signout").onclick = ()=>{
-    removeAllCookies();
-    window.location.reload();
 }

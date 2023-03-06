@@ -54,10 +54,10 @@
     margin-bottom: 25px;
 }
 
-#datatable_filter input {
+#datatable_filter input, #order, #toggle_table {
     position: relative;
     background-color: rgb(91 71 165) !important;
-    margin-bottom: 25px;
+    margin-bottom: 45px;
     width: 300px;
     box-sizing: border-box;
     padding: 15px;
@@ -65,15 +65,37 @@
     text-align: center;
     margin-top: 10px;
     margin-left: 0px;
+    margin-bottom: 15px;
     border-radius: 10px;
     text-align: left;
+    transition: 0.2s ease all;
 }
 
-#datatable_filter label {
-    text-align: center;
+#datatable_filter input::placeholder {
+    color: rgb(160, 156, 156);
+}
+
+#datatable_filter label, #order, .filter-txt {
+    text-align: left;
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 6px;
+}
+
+#order-container {
+    margin-bottom: 15px;
+}
+
+#order, #toggle_table {
+    text-align: left;
+    font-family: "Roboto Mono";
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 0px;
+}
+
+#order:hover, #datatable_filter input:hover {
+    border-bottom: 0.2em solid rgb(67, 50, 134) !important;
 }
 
 #loading-screen {

@@ -28,10 +28,17 @@
     <link rel="stylesheet" href="table.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https//fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto+Mono:wght@200;300&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto+Mono:wght@200;300;400&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="loading-animation.css" />
 
+    <?php
+    
+    #Include the table header populating function
+    include("./php/populate_header.php");
+
+    ?>
+    
 </head>
 
 <body>
@@ -145,108 +152,14 @@
         </div> -->
 
         <table id="table"></table>
+        <table id="users_table">
+
+        </table>
         <table id="datatable">
-
             <thead>
-        <?php
-        
-            #MySQL connection settings
-            $host     = "mysql";
-            $user     = "root";
-            $password = "mygene";
-            $database = "dnaiq_dallas";
-            $port = "3306";
-
-            $connection;
-
-            //List of strings to be populated once we have processed the data from the server.
-            $html_th = "<tr class='th-row'>";
-            $html_td = "";
-
-            //A try-catch block was used because some error kept coming up. This prevents that
-            try {
-
-                //Establish a connection to the MySQL server:
-                $connection = mysqli_connect($host, $user, $password, $database, $port);
-
-            } catch (Exception $e) {
-                echo "MySQLi connection failed: " . $e->getMessage();
-            }
-
-            //Now we're connected to the server. We will populate the HTML element
-            //we're in (#datatables) with the information from the database.
-            //First we will populate the table header section then the actual table cells
-            //themselves.
-
-            //Get the list of columns in staging_labs
-            $describe_string = "DESCRIBE staging_labs";
-            $describe_query  = mysqli_query($connection, $describe_string);
-            //We'll also want to a keep a copy of $describe_query as an array
-            $describe_array  = array();
-
-            //Get the contents of staging_labs
-            $contents_string = "SELECT * FROM staging_labs";
-            $contents_query  = mysqli_query($connection, $contents_string);
-
-            //Iterate over $describe_query
-            while ($col = $describe_query->fetch_array()){
-
-                //The purpose of this loop is to populate $html_th with the corresponding columns
-                //in the database. This will only occur if mysqli_num_rows(describe_query)
-
-                //Name of the column in the database
-                $col_name = $col[0];
-
-                //Add the current $col (column) into the $html_th string:
-                $html_th = $html_th . "<th>" . $col_name . "</th>";
-
-                //Add to $describe_array so we can remember in the future what the columns are
-                $describe_array[] = $col_name;
-            
-            }
-
-
-            //Close off $html_th in the proper way
-            $html_th = $html_th . "</tr>";
-
-            //Print the table header before we continue with the body section of the table
-            echo $html_th;
-
-            ?>
+               <?php retrieveTableHeader("staging_labs"); ?> 
             </thead>
-            <tbody>
-
-            <?php
-
-            //Iterate over $contents_query
-            while ($row = mysqli_fetch_array($contents_query)){
-
-                //The purpose of this loop is to populate $html_td with the corresponding
-                //datasets/rows in the database.
-
-                //Element we will add to $html_td
-                $td = "<tr>";
-
-                //Iterate over $describe_query
-                foreach ($describe_array as $col_name){
-
-                    //The other purpose is to construct $td according to the row and column.
-                    $td = $td . "<td>" . $row[$col_name] . "</td>";
-
-                }
-
-                //Close off $td with the correct string:
-                $td = $td . "</tr>";
-
-                //Concatinate $td to $html_td
-                $html_td = $html_td . $td;
-
-            }
-
-            #echo $html_td;
-
-        ?>
-            </tbody>
+            <tbody></tbody>    
         </table>
         
     </div>

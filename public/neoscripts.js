@@ -3,6 +3,18 @@
 // Contains the updated Javascript for the revised CRUD version
 //===========================================//
 
+
+//TEMPORARY === 
+$("#login, #loading-screen").fadeOut();
+
+
+//Because we haven't renewed the trial version of datatatables as of 23/01/2022,
+//we will disable the alert function so we don't get the annoying alert from
+//datatables. We'll keep the original alert function in case we need to do
+//alerts though.
+let Oalert = alert;
+alert = ()=>{};
+
 //Globally keep track of the Datatable editor and table
 var editor, table, rows_selected = 0;
 
@@ -47,6 +59,12 @@ $(document).ready(()=>{
         },
         dom: "Bfrtip",
         columns: [
+            {
+                data: null,
+                defaultContent: '',
+                className: 'select-checkbox',
+                orderable: false
+            },
             { data: "idstaging_labs" },
             { data: "meta_cat" },
             { data: "category" },
@@ -63,7 +81,48 @@ $(document).ready(()=>{
             { data: "normal_high" },
             { data: "ref_coefficient" },
         ],
-        rowId: [0]
+        rowId: [0],
+        language: {
+            search: "Database Search",
+            searchPlaceholder: "Start typing to search"
+        },
+        initComplete: (settings, json)=>{
+
+            //This function will execute once datatables has finished running.
+            $("#datatable_filter").prepend(`
+            <div class="filter inline-middle" id="order-container">
+                <div class="filter-txt">PAGE SIZE</div>
+                <select class="action-table-input" id="order">
+                    <option value="-1">ALL RECORDS</option>
+                    <option value="5">5 ROWS</option>
+                    <option value="10" selected >10 ROWS</option>
+                    <option value="20">20 ROWS</option>
+                    <option value="25">25 ROWS</option>
+                    <option value="50">50 ROWS</option>
+                    </select>
+            </div>
+            `);
+
+            //Show the menu so we can see which database we're working with.
+            $("#datatable_filter").append(`
+            <div class="filter inline-middle" id="order-container">
+                <div class="filter-txt">TABLE</div>
+                <select class="action-table-input" id="toggle_table">
+                    <option value="staging_labs">STAGING_LABS</option>
+                    <option value="staging_labs">USERS</option>
+                </select>
+            </div>
+            `);
+
+            $("#datatable_filter").prepend(`<div id="filters-txt">Tools</div>`);
+
+            let order = document.getElementById("order");
+
+            order.addEventListener("change", ()=>{
+                table.page.len(parseInt(order.value)).draw();
+            });
+
+        }
     });
 
     //Inline-editing

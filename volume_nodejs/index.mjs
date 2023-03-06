@@ -174,9 +174,9 @@ io.on("connection", (socket)=>{
         //Create a variable to compare login to:
         var login_compare = sha512.b64(cookie_salt + ident_decrypted + cookie_salt);
 
-        console.log(ident_decrypted);
-        console.log(login);
-        console.log(login_compare);
+        // console.log(ident_decrypted);
+        // console.log(login);
+        // console.log(login_compare);
 
         if (login_compare == login){
             socket.emit("removeLogin");
